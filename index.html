@@ -56,15 +56,26 @@
 <body class="bg-black text-white font-sans pt-24">
 
   <!-- Navbar -->
-   <header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 bg-gray-900 shadow-md">
-
+ <header class="fixed top-0 left-0 w-full z-50 bg-gray-900 shadow-md">
+  <div class="flex items-center justify-between px-6 py-4">
+    <!-- Logo and Brand -->
     <div class="flex items-center space-x-2">
       <div class="text-3xl font-bold bg-gradient-to-r from-purple-500 via-blue-500 to-teal-400 bg-clip-text text-transparent animate-float">
         K
       </div>
-      <span class="text-xl font-semibold">beitSolution</span>
+      <span class="text-xl font-semibold text-white">beitSolution</span>
     </div>
-    <nav class="space-x-6 text-sm">
+
+    <!-- Toggle Button (Mobile) -->
+    <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex space-x-6 text-sm text-white items-center">
       <a href="#home" class="hover:text-purple-400">Home</a>
       <a href="#about" class="hover:text-purple-400">About</a>
       <a href="#services" class="hover:text-purple-400">Services</a>
@@ -73,8 +84,22 @@
       <a href="#contact" class="hover:text-purple-400">Contact</a>
       <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">Get Started</button>
     </nav>
-  </header>
-  <!-- Hero Section -->
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div id="mobile-menu" class="md:hidden hidden px-6 pb-4 space-y-2 text-sm text-white">
+    <a href="#home" class="block hover:text-purple-400">Home</a>
+    <a href="#about" class="block hover:text-purple-400">About</a>
+    <a href="#services" class="block hover:text-purple-400">Services</a>
+    <a href="#portfolio" class="block hover:text-purple-400">Portfolio</a>
+    <a href="#blog" class="block hover:text-purple-400">Blog</a>
+    <a href="#contact" class="block hover:text-purple-400">Contact</a>
+    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded">Get Started</button>
+  </div>
+</header>
+
+
+ <!-- Hero Section -->
   <section id="home" class="text-center py-24 px-6 relative z-10">
     <h1 class="text-5xl font-bold mb-4 animate-float leading-tight">
       Uniquely Crafted<br>Software Solutions for Tomorrow
@@ -135,7 +160,15 @@
 
   </div>
 </section>
+<!-- Toggle Script -->
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
 
+  toggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+</script>
 </body>
 </html>
 
@@ -174,7 +207,7 @@
   <section class="py-16 px-6 max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold mb-6 text-center">Our Journey</h2>
     <p class="text-gray-400 text-lg leading-relaxed">
-      Founded with a vision to simplify digital transformation, KbeitSolution has grown into a powerhouse of innovation. From humble beginnings to global impact, our team has delivered solutions across industries — from fintech to healthcare, education to e-commerce. We’re not just developers; we’re partners in progress.
+      Founded with a vision to simplify digital transformation, KbeitSolution has grown into a powerhouse of innovation. From humble beginnings to global impact, our team has delivered solutions across industries from fintech to healthcare, education to e-commerce. We’re not just developers; we’re partners in progress.
     </p>
   </section>
 
@@ -318,7 +351,7 @@
   <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
     <div class="bg-black p-6 rounded-lg border border-purple-600 hover:shadow-purple-600 transition duration-300">
       <h3 class="text-xl font-bold mb-2">Fast Delivery</h3>
-      <p class="text-gray-400">We move quickly without compromising quality — your timeline is our priority.</p>
+      <p class="text-gray-400">We move quickly without compromising quality your timeline is our priority.</p>
     </div>
     <div class="bg-black p-6 rounded-lg border border-purple-600 hover:shadow-purple-600 transition duration-300">
       <h3 class="text-xl font-bold mb-2">Scalable Solutions</h3>
@@ -326,7 +359,7 @@
     </div>
     <div class="bg-black p-6 rounded-lg border border-purple-600 hover:shadow-purple-600 transition duration-300">
       <h3 class="text-xl font-bold mb-2">24/7 Support</h3>
-      <p class="text-gray-400">We’re always here — before, during, and after launch.</p>
+      <p class="text-gray-400">We’re always here before, during, and after launch.</p>
     </div>
   </div>
 </section>
@@ -459,7 +492,7 @@
 
       <!-- Project 2 -->
       <div class="bg-gray-900 rounded-lg overflow-hidden border border-purple-600 hover:shadow-purple-600 transition duration-300">
-        <img src="health.png" alt="AI Dashboard" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)" />
+        <img src="helth.png" alt="AI Dashboard" class="w-full h-48 object-cover cursor-pointer" onclick="openLightbox(this.src)" />
         <div class="p-4">
           <h3 class="text-xl font-bold mb-2">HealthX AI Dashboard</h3>
           <p class="text-gray-400 text-sm">AI-powered diagnostics and patient analytics for hospitals.</p>
@@ -528,27 +561,16 @@
 </head>
 <body class="bg-black text-white font-sans">
 <!-- Comment Section -->
-<section class="mt-16">
-  <h2 class="text-2xl font-bold mb-4">Leave a Comment</h2>
-  <form class="space-y-4">
-    <input type="text" placeholder="Your Name" class="w-full bg-gray-900 text-white px-4 py-3 rounded border border-purple-600 focus:outline-none" />
-    <textarea rows="4" placeholder="Your Comment" class="w-full bg-gray-900 text-white px-4 py-3 rounded border border-purple-600 focus:outline-none"></textarea>
-    <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded">Post Comment</button>
-  </form>
 
-  <!-- Display Comments -->
-  <div class="mt-10 space-y-6">
-    <div class="bg-gray-800 p-4 rounded">
-      <p class="text-sm text-gray-300">“This article was super insightful — thanks for breaking it down!”</p>
-      <span class="text-xs text-purple-400">— Ada, Sept 20</span>
-    </div>
-    <div class="bg-gray-800 p-4 rounded">
-      <p class="text-sm text-gray-300">“AI in healthcare is the future. Great read!”</p>
-      <span class="text-xs text-purple-400">— Tunde, Sept 19</span>
-    </div>
-  </div>
-</section>
 
+<form class="max-w-2xl mx-auto space-y-6">
+  Leave a Comment
+      <input type="text" placeholder="Your Name" class="w-full bg-gray-900 text-white px-4 py-3 rounded border border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+      <textarea rows="5" placeholder="Your Comment" class="w-full bg-gray-900 text-white px-4 py-3 rounded border border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+      <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-full transition-all duration-300">
+        Post Comment
+      </button>
+    </form>
 
 
 
@@ -590,7 +612,7 @@
 
       <!-- Blog Post 1 -->
       <div class="bg-gray-900 rounded-lg overflow-hidden border border-purple-600 hover:shadow-purple-600 transition duration-300">
-        <img src="aihealth.png" alt="AI in Healthcare" class="w-full h-48 object-cover" />
+        <img src="helth.png" alt="AI in Healthcare" class="w-full h-48 object-cover" />
         <div class="p-4">
           <h3 class="text-xl font-bold mb-2">How AI Is Revolutionizing Healthcare</h3>
           <p class="text-gray-400 text-sm">From diagnostics to patient care, AI is transforming the medical landscape.</p>
@@ -677,8 +699,10 @@
   <section id="contact" class="py-20 px-6 text-center">
     <h1 class="text-5xl font-bold mb-4 animate-float">Let’s Talk</h1>
     <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto">
-      Whether you have a question, a project idea, or just want to say hello — we’re here to listen.
+      Whether you have a question, a project idea, or just want to say hello we’re here to listen.
     </p>
+
+
 
     <!-- Contact Form -->
     <form class="max-w-2xl mx-auto space-y-6">
@@ -720,21 +744,46 @@
 <section class="py-10 px-6 bg-gray-900 text-center">
   <h2 class="text-2xl font-bold mb-6">Connect With Us</h2>
   <div class="flex justify-center space-x-6">
-    <a href="https://facebook.com" target="_blank" class="text-purple-400 hover:text-white transition">
+    <a href="https://facebook.com/bashiru.hassan" target="_blank" class="text-purple-100 hover:text-white transition">
       <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
         <path d="M22 12a10 10 0 10-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0022 12z"/>
       </svg>
     </a>
-    <a href="https://twitter.com" target="_blank" class="text-purple-400 hover:text-white transition">
+    <a href="https://x.com/bhkebbe" target="_blank" class="text-purple-400 hover:text-white transition">
       <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
         <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.88-2.38 8.6 8.6 0 01-2.72 1.04 4.28 4.28 0 00-7.3 3.9A12.14 12.14 0 013 5.1a4.28 4.28 0 001.32 5.7 4.2 4.2 0 01-1.94-.54v.05a4.28 4.28 0 003.43 4.2 4.3 4.3 0 01-1.93.07 4.28 4.28 0 004 2.97A8.6 8.6 0 012 19.54a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.7 8.7 0 0022.46 6z"/>
       </svg>
     </a>
-    <a href="https://linkedin.com" target="_blank" class="text-purple-400 hover:text-white transition">
+    <a href="https://www.linkedin.com/in/bashiru-hassan-4bb308363?" target="_blank" class="text-purple-400 hover:text-white transition">
       <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
         <path d="M4.98 3.5a2.5 2.5 0 11-.01 5.01 2.5 2.5 0 01.01-5.01zM3 9h4v12H3V9zm7 0h3.6v1.7h.05c.5-.9 1.7-1.8 3.5-1.8 3.7 0 4.4 2.4 4.4 5.5V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4V9z"/>
       </svg>
     </a>
+    <!-- WhatsApp -->
+<a href="https://wa.me/08161741439" target="_blank" class="text-green-500 hover:text-green-600 transition">
+  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">
+    <path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.4 2 7.7L0 32l8.5-2.2c2.3 1.2 4.9 1.8 7.5 1.8 8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.3 0-4.6-.6-6.6-1.7l-.5-.3-5 1.3 1.3-4.9-.3-.5c-1.2-2-1.8-4.3-1.8-6.6 0-7.3 5.9-13.3 13.3-13.3S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.1-10.2c-.4-.2-2.3-1.1-2.7-1.2-.4-.1-.7-.2-1 .2-.3.4-1.2 1.2-1.5 1.5-.3.3-.6.3-1 .1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.9.3-1.1.3-.3.7-.8 1-.8.3 0 .5 0 .7.1.2.1.5.1.6.4.2.4.7 1.3.8 1.4.1.1.1.3 0 .4-.1.1-.2.3-.3.4-.1.1-.2.2-.1.4.1.2.5.8 1.2 1.3.8.7 1.5.9 1.7 1 .2.1.3.1.4-.1.1-.2.6-.7.8-1 .2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.4.2.5.3.1.1.1.7-.1 1z"/>
+  </svg>
+</a>
+
+<!-- YouTube -->
+<a href="https://youtube.com" target="_blank" class="text-red-600 hover:text-white transition">
+  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M23.5 6.5s-.2-1.6-.8-2.3c-.8-.9-1.7-.9-2.1-1C17.2 3 12 3 12 3s-5.2 0-8.6.2c-.4.1-1.3.1-2.1 1C.7 4.9.5 6.5.5 6.5S0 8.4 0 10.3v3.4c0 1.9.5 3.8.5 3.8s.2 1.6.8 2.3c.8.9 1.9.9 2.4 1 1.8.2 7.3.2 7.3.2s5.2 0 8.6-.2c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.3.8-2.3s.5-1.9.5-3.8v-3.4c0-1.9-.5-3.8-.5-3.8zM9.5 15.5V8.5l6.5 3.5-6.5 3.5z"/>
+  </svg>
+</a>
+
+<!-- Instagram -->
+<a href="https://instagram.com" target="_blank" class="text-pink-500 hover:text-white transition">
+  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 2 .2 2.5.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.5.3 1.3.4 2.5.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 2-.4 2.5-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.5.2-1.3.3-2.5.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-2-.2-2.5-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.5-.3-1.3-.4-2.5C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-2 .4-2.5.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .5-.2 1.3-.3 2.5-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.3-.5.2-.8.4-1.2.8-.4.4-.6.7-.8 1.2-.1.4-.2 1-.3 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.3 2.1.2.5.4.8.8 1.2.4.4.7.6 1.2.8.4.1 1 .2 2.1.3 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.3.5-.2.8-.4 1.2-.8.4-.4.6-.7.8-1.2.1-.4.2-1 .3-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.3-2.1-.2-.5-.4-.8-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.1-1-.2-2.1-.3-1.2-.1-1.6-.1-4.7-.1zm0 3.8a5.2 5.2 0 100 10.4 5.2 5.2 0 000-10.4zm0 8.6a3.4 3.4 0 110-6.8 3.4 3.4 0 010 6.8zm5.4-8.9a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
+  </svg>
+</a>
+
+<!-- Telegram -->
+<a href="https://t.me/" target="_blank" class="text-blue-500 hover:text-white transition">
+  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M9.04 16.2l-.39 5.52
   </div>
 </section>
 
